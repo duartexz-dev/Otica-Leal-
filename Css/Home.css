@@ -2031,3 +2031,110 @@ a:hover {
     bottom: 80px;
   }
 }
+@media (max-width: 768px) {
+  .row.g-5 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .row.g-5 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+}
+.custom-navbar .container {
+  flex-wrap: nowrap;
+}
+
+.btn-cart {
+  position: relative;
+}
+
+.search-box {
+  width: 100%;
+}
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .search-box {
+    width: 280px;
+  }
+}
+@media (max-width: 768px) {
+  .row.g-5 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+
+  .row.g-4 {
+    --bs-gutter-x: 0.8rem;
+    --bs-gutter-y: 0.8rem;
+  }
+}
+@media (max-width: 768px) {
+  .exames-section,
+  .hero-content-box,
+  .glass-card {
+    padding: 20px !important;
+  }
+}
+section,
+.container,
+.container-fluid {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+body::after {
+  content: "";
+  position: fixed;
+  right: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.feedback-carousel-container {
+  overflow: hidden;
+}
+
+.feedback-track {
+  display: flex;
+  gap: 15px;
+  width: max-content;
+}
+* {
+  max-width: 100%;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  word-wrap: break-word;
+}
+button,
+.btn {
+  white-space: normal;
+}
+.product-card,
+.feature-box,
+.insta-item {
+  width: 100%;
+  overflow: hidden;
+}
+.feedback-carousel-container {
+  overflow: hidden;
+}
+
+.feedback-track {
+  display: flex;
+  gap: 15px;
+  width: max-content;
+}
