@@ -2133,8 +2133,206 @@ button,
   overflow: hidden;
 }
 
-.feedback-track {
-  display: flex;
-  gap: 15px;
-  width: max-content;
+/* ========================================
+   🔥 MOBILE OPTIMIZATION PACK
+   ======================================== */
+
+/* RESET BASE */
+* {
+  box-sizing: border-box;
+  max-width: 100%;
 }
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   NAVBAR FIX
+   ======================================== */
+
+.custom-navbar {
+  margin-top: 0;
+}
+
+.btn-cart {
+  position: relative;
+}
+
+/* HERO AJUSTE (navbar fixed-top) */
+.hero-section {
+  padding-top: 90px;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 80px;
+  }
+}
+
+/* ========================================
+   CONTAINERS (MENOS ESPAÇO LATERAL)
+   ======================================== */
+
+@media (max-width: 768px) {
+  .container,
+  .container-fluid {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+
+/* ========================================
+   SEÇÕES GRANDES (FULL WIDTH)
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hero-section,
+  .exames-section,
+  .stats-section {
+    margin-left: -10px;
+    margin-right: -10px;
+    border-radius: 0 !important;
+  }
+}
+
+/* ========================================
+   GRID MAIS COMPACTO
+   ======================================== */
+
+@media (max-width: 768px) {
+  .row {
+    --bs-gutter-x: 0.8rem;
+    --bs-gutter-y: 0.8rem;
+  }
+}
+
+/* ========================================
+   CARDS MAIS CONFORTÁVEIS
+   ======================================== */
+
+@media (max-width: 768px) {
+  .glass-card,
+  .product-card,
+  .hero-content-box {
+    padding: 16px !important;
+  }
+}
+
+/* ========================================
+   IMAGENS RESPONSIVAS
+   ======================================== */
+
+/* IMAGEM DA LOJA (DESTAQUE) */
+@media (max-width: 768px) {
+  #sobre .position-relative {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  #sobre img {
+    width: 100%;
+    border-radius: 12px;
+  }
+}
+
+/* ========================================
+   TIPOGRAFIA MOBILE
+   ======================================== */
+
+@media (max-width: 768px) {
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* ========================================
+   FOOTER FIX
+   ======================================== */
+
+.site-footer {
+  overflow: hidden;
+}
+
+.security-seals {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.site-footer p {
+  word-break: break-word;
+}
+
+/* ========================================
+   EVITAR QUALQUER SCROLL LATERAL
+   ======================================== */
+
+section,
+.container,
+.container-fluid {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   BOTÕES MOBILE
+   ======================================== */
+
+button,
+.btn {
+  white-space: normal;
+}
+
+/* ========================================
+   WHATSAPP FLOAT AJUSTE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 80px;
+  }
+}
+
+/* ========================================
+   SEARCH BAR FIX
+   ======================================== */
+
+.search-box {
+  width: 100%;
+}
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .search-box {
+    width: 280px;
+  }
+}
+
+/* ========================================
+   PRODUTOS / CARDS BUG FIX
+   ======================================== */
+
+.product-card,
+.feature-box,
+.insta-item {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ========================================
+   CARROSSEL BUG FIX
+   ======================================== */
