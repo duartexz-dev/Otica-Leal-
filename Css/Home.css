@@ -2008,3 +2008,26 @@ a:hover {
 .search-box .form-control {
   height: 40px;
 }
+.search-box {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .search-box {
+    width: 300px;
+  }
+}
+.btn-cart {
+  position: relative;
+}
+.security-seals {
+  flex-wrap: wrap;
+}
+.site-footer p {
+  word-break: break-word;
+}
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 80px;
+  }
+}
