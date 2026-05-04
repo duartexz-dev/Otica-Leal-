@@ -1,0 +1,109 @@
+/* ========================================
+   PRODUCTS PAGES — Premium Overrides
+   ======================================== */
+
+/* HERO - SUBPAGES */
+.hero {
+    height: 70vh;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(0,0,0,0.9), rgba(0,0,0,0.4), rgba(201,166,70,0.08));
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(201,166,70,0.15), transparent 70%);
+    top: -150px;
+    right: -150px;
+    filter: blur(100px);
+    animation: floatOrb 8s ease-in-out infinite alternate;
+}
+
+/* HERO TEXT */
+.hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.hero-sub {
+    opacity: 0.85;
+    letter-spacing: 3px;
+    font-size: 1.1rem;
+}
+
+/* SECTION TITLE */
+.section-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    letter-spacing: 1px;
+}
+
+/* GLASS CARD */
+.glass-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 18px;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+.glass-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    border: 1px solid rgba(255,215,0,0.4);
+    box-shadow: 0 15px 40px rgba(255,215,0,0.15);
+}
+
+/* PRICE DISPLAY */
+.price {
+    color: #00ff88;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-shadow: 0 0 15px rgba(0,255,136,0.2);
+}
+
+/* DEPTH BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201,166,70,0.06), transparent);
+    top: -200px;
+    left: -200px;
+    filter: blur(120px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0,255,136,0.04), transparent);
+    bottom: -100px;
+    right: -100px;
+    filter: blur(100px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero { height: 55vh; min-height: 350px; }
+    .hero-title { font-size: 2rem; }
+}
