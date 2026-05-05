@@ -128,7 +128,7 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* ---- PREMIUM FEATURE BOXES ---- */
+/* Premium FEATURE BOXES ---- */
 .feature-box {
   position: relative;
   display: block;
@@ -139,6 +139,18 @@ html {
   overflow: hidden;
   transition: all 0.5s var(--ease);
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .feature-box {
+    height: 280px;
+  }
+}
+
+@media (max-width: 576px) {
+  .feature-box {
+    height: 240px;
+  }
 }
 
 .feature-box:hover {
@@ -209,6 +221,7 @@ body {
     color 0.3s ease;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .navbar-brand {
@@ -370,6 +383,21 @@ a:hover {
   .container {
     padding: 0 0.75rem;
     margin: 0 auto;
+  }
+}
+
+.container-fluid {
+  overflow-x: hidden;
+  max-width: 100% !important;
+  width: 100%;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0 !important;
   }
 }
 
@@ -575,7 +603,7 @@ a:hover {
 }
 
 .hero-section h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.75rem, 4vw, 3.8rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
@@ -969,106 +997,407 @@ a:hover {
 /* ================================================
    EXAMES SECTION
    ================================================ */
-.exames-section {
-  background: var(--bg-elevated);
-  border-radius: var(--radius);
-  margin: 2rem 0;
+.exames-hero-section {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 66, 55, 0.05) 0%,
+    rgba(212, 175, 55, 0.05) 100%
+  );
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 0 !important;
+}
+
+.exames-hero-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 55, 0.08) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.exames-hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(10, 66, 55, 0.08) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.exames-wrapper {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 24px;
+  padding: 2.5rem;
+  position: relative;
+  z-index: 1;
+  transition: all 0.5s var(--ease);
   overflow: hidden;
 }
 
-.exame-img {
-  width: 100%;
+.exames-wrapper:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 60px rgba(212, 175, 55, 0.1);
+}
+
+.exame-image-box {
+  position: relative;
   height: 100%;
-  min-height: 300px;
-  object-fit: cover;
+  min-height: 380px;
 }
 
 .exame-img-container {
-  width: 100%;
-  height: 100%;
-  min-height: 280px;
+  position: relative;
   overflow: hidden;
+  height: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 .exame-img-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.6s var(--ease);
 }
 
-.badge-free {
-  background: var(--secondary);
-  color: #fff;
-  padding: 0.4rem 1rem;
-  border-radius: var(--radius-xs);
-  font-size: 0.85rem;
-  font-weight: 700;
-  vertical-align: middle;
-  white-space: nowrap;
+.exames-wrapper:hover .exame-img-container img {
+  transform: scale(1.05);
+}
+
+.exame-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 66, 55, 0.2) 0%,
+    rgba(212, 175, 55, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+.exame-content h2 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.exame-content .accent-text {
+  background: linear-gradient(135deg, var(--secondary), #ffd166);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.exame-content p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
 }
 
 .benefit-item {
   display: flex;
-  gap: 1.25rem;
-  margin-bottom: 1.5rem;
+  gap: 1.5rem;
   align-items: flex-start;
+  transition: all 0.3s var(--ease);
+  padding: 0.75rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.benefit-item:hover {
+  background: rgba(212, 175, 55, 0.08);
+  transform: translateX(8px);
 }
 
 .benefit-icon {
-  width: 50px;
-  height: 50px;
-  background: rgba(212, 175, 55, 0.1);
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.2) 0%,
+    rgba(212, 175, 55, 0.05) 100%
+  );
+  border: 2px solid rgba(212, 175, 55, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: var(--secondary);
-  flex-shrink: 0;
+  transition: all 0.3s var(--ease);
+}
+
+.benefit-item:hover .benefit-icon {
+  background: rgba(212, 175, 55, 0.3);
+  border-color: var(--secondary);
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+}
+
+.benefit-item strong {
+  font-size: 1rem;
+  color: var(--text);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.benefit-item small {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.btn-exame {
+  background: var(--primary);
+  border: none;
+  transition: all 0.3s var(--ease);
+  box-shadow: 0 10px 30px rgba(10, 66, 55, 0.2);
+  font-size: 1rem;
+}
+
+.btn-exame:hover {
+  background: var(--primary-dark);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(10, 66, 55, 0.3);
+}
+
+.btn-exame:active {
+  transform: translateY(-1px);
+}
+
+/* ================================================
+   EXAMES RESPONSIVE
+   ================================================ */
+@media (max-width: 992px) {
+  .exames-wrapper {
+    padding: 2rem;
+  }
+
+  .exame-image-box {
+    min-height: 320px;
+  }
+
+  .exame-content h2 {
+    font-size: 2.2rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .exames-section {
-    margin: 1.5rem 0 !important;
+  .exames-hero-section {
+    padding: 3rem 0 !important;
   }
 
-  .exame-img-container {
-    min-height: 220px;
+  .exames-wrapper {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .exame-image-box {
+    min-height: 280px;
+    order: 1;
+  }
+
+  .exame-content {
+    order: 2;
+    padding: 1.5rem 0 0 0;
+  }
+
+  .exame-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .exame-content p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .benefits-list {
+    gap: 1.25rem;
     margin-bottom: 1.5rem;
   }
 
   .benefit-item {
     gap: 1rem;
-    margin-bottom: 1.25rem;
+    padding: 0.5rem;
   }
 
   .benefit-icon {
-    width: 45px;
-    height: 45px;
-    font-size: 1.25rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
   }
 
-  .badge-free {
-    padding: 0.35rem 0.8rem;
-    font-size: 0.8rem;
+  .benefit-item strong {
+    font-size: 0.95rem;
+  }
+
+  .benefit-item small {
+    font-size: 0.85rem;
+  }
+
+  .btn-exame {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.95rem;
+  }
+
+  body {
+    padding-top: 75px;
+  }
+
+  .hero-content {
+    padding-top: 2rem;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .feature-grid,
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .custom-navbar {
+    padding: 0.6rem 0;
+  }
+
+  .page-header {
+    min-height: 400px;
+  }
+
+  .page-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .page-header .breadcrumb {
+    font-size: 0.82rem;
+  }
+
+  .stats-section {
+    padding: 3rem 0.75rem !important;
+  }
+
+  .product-img-box {
+    height: 240px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  section > .container {
+    padding: 0 0.75rem;
   }
 }
 
+/* ================================================
+   EXAMES MOBILE EXTRA SMALL (<576px)
+   ================================================ */
 @media (max-width: 576px) {
-  .exames-section {
-    margin: 1rem 0 !important;
+  .exames-hero-section {
+    padding: 2rem 0 !important;
   }
 
-  .exame-img-container {
-    min-height: 200px;
-    margin-bottom: 1.5rem;
-    border-radius: 16px !important;
+  .exames-wrapper {
+    padding: 1.25rem;
+    border-radius: 16px;
   }
 
-  .badge-free {
-    display: block;
-    margin-top: 0.5rem;
-    text-align: center;
+  .exame-image-box {
+    min-height: 240px;
+  }
+
+  .exame-content {
+    padding: 1rem 0 0 0;
+  }
+
+  .exame-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .exame-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .benefits-list {
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .benefit-item {
+    gap: 0.75rem;
+    padding: 0.4rem;
+  }
+
+  .benefit-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+    min-width: 44px;
+  }
+
+  .benefit-item strong {
+    font-size: 0.9rem;
+  }
+
+  .benefit-item small {
+    font-size: 0.8rem;
+  }
+
+  .btn-exame {
+    padding: 0.65rem 1rem !important;
+    font-size: 0.9rem;
+  }
+
+  .exames-hero-section::before {
+    width: 300px;
+    height: 300px;
+    top: -30%;
+    right: -15%;
+  }
+
+  .exames-hero-section::after {
+    width: 250px;
+    height: 250px;
+    bottom: -20%;
+    left: -10%;
   }
 }
 
@@ -1214,6 +1543,7 @@ a:hover {
   }
   .product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
   }
   .exames-grid {
     grid-template-columns: 1fr;
@@ -1222,55 +1552,270 @@ a:hover {
 
 @media (max-width: 820px) {
   body {
-    padding-top: 110px;
+    padding-top: 75px;
   }
   .hero-content {
-    padding-top: 3rem;
+    padding-top: 2rem;
   }
   .hero-section h1 {
-    font-size: clamp(2.5rem, 8vw, 3.6rem);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+  }
+  .hero-section p {
+    font-size: 1rem;
   }
   .feature-grid,
   .product-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
   .custom-navbar {
-    padding: 14px 0;
+    padding: 0.6rem 0;
   }
   .page-header {
-    min-height: 460px;
+    min-height: 400px;
   }
   .page-header h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   .page-header .breadcrumb {
     font-size: 0.82rem;
   }
+
+  .product-img-box {
+    height: 240px;
+  }
+
+  section > .container,
+  section.container {
+    padding: 0 1rem;
+  }
 }
 
 @media (max-width: 640px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .custom-navbar {
+    padding: 0.5rem 0 !important;
+  }
+
+  .custom-navbar .navbar-brand {
+    font-size: 1.1rem !important;
+    letter-spacing: -0.8px !important;
+  }
+
   .custom-navbar .navbar-collapse {
     background: var(--bg-card);
-    margin-top: 0.75rem;
-    padding: 1rem;
-    border-radius: 24px;
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 16px;
   }
+
   .custom-navbar .nav-link {
-    padding: 12px 14px !important;
+    padding: 8px 10px !important;
+    font-size: 0.9rem;
   }
+
+  .hero-section {
+    min-height: 60vh;
+    padding: 1rem 0;
+  }
+
+  .hero-content-box {
+    padding: 1.25rem !important;
+    margin: 0 !important;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(1.75rem, 4vw, 2.2rem) !important;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .hero-section p {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem !important;
   }
+
   .btn-hero-primary,
   .btn-hero-secondary {
     width: 100%;
+    padding: 0.65rem 1rem !important;
+    font-size: 0.9rem;
   }
+
+  .btn-hero-secondary {
+    margin-left: 0 !important;
+  }
+
+  .badge-new {
+    font-size: 0.65rem !important;
+    padding: 0.35rem 0.75rem !important;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .product-card {
+    border-radius: 12px;
+  }
+
+  .product-img-box {
+    height: 220px;
+  }
+
   .product-body {
-    padding: 1.35rem;
+    padding: 1rem;
   }
+
+  .product-name {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-category {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .product-short-desc {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
   .btn-buy {
     width: 100%;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem;
+  }
+
+  .feature-box {
+    height: 280px !important;
+    border-radius: 16px;
+  }
+
+  .feature-overlay {
+    padding: 1.5rem !important;
+  }
+
+  .feature-box h3 {
+    font-size: 1.4rem;
+  }
+
+  .feature-box p {
+    font-size: 0.85rem;
+  }
+
+  .small-tag {
+    font-size: 0.65rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem !important;
+    border-radius: 16px;
+  }
+
+  .stat-number {
+    font-size: 2.5rem !important;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+  }
+
+  section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .stats-section {
+    padding: 2rem 0.75rem !important;
+  }
+
+  .page-header {
+    padding: 2rem 0 1.5rem !important;
+    margin-bottom: 0;
+    min-height: 350px;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .page-header p {
+    font-size: 0.95rem;
+  }
+
+  .page-header-content {
+    padding: 1rem !important;
+    max-width: 100%;
+  }
+
+  .trust-icon-box {
+    padding: 1.5rem 1rem !important;
+    border-radius: 12px;
+  }
+
+  .trust-icon-box i {
+    font-size: 2rem !important;
+    margin-bottom: 0.75rem;
+  }
+
+  .trust-icon-box h5 {
+    font-size: 0.95rem !important;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem !important;
+    border-radius: 12px;
+  }
+
+  .testimonial-card .italic {
+    font-size: 0.9rem;
+  }
+
+  .modal-content {
+    margin: 0 !important;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .modal-dialog {
+    margin-bottom: 0 !important;
+  }
+
+  .badge-popular,
+  .badge-scarcity {
+    font-size: 0.55rem;
+    padding: 3px 6px;
+  }
+
+  .row.g-4,
+  .row.g-5 {
+    gap: 0.75rem !important;
+  }
+
+  .row.g-2,
+  .row.g-3 {
+    gap: 0.75rem !important;
   }
 }
 
@@ -1447,7 +1992,7 @@ a:hover {
    ================================================ */
 .stats-section {
   background: var(--primary);
-  padding: 5rem 0;
+  padding: 3.5rem 0;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -2115,6 +2660,134 @@ a:hover {
 .feedback-float:hover {
   transform: scale(1.1) rotate(5deg);
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+/* ========================================
+   EXTRA MOBILE OPTIMIZATIONS (<480px)
+   ======================================== */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    padding-top: 65px !important;
+  }
+
+  .custom-navbar {
+    padding: 0.4rem 0 !important;
+  }
+
+  .navbar-brand {
+    font-size: 1rem !important;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+    line-height: 1.15;
+  }
+
+  .hero-content-box {
+    padding: 1rem !important;
+  }
+
+  .badge-new {
+    font-size: 0.6rem !important;
+    padding: 0.25rem 0.6rem !important;
+  }
+
+  .product-img-box {
+    height: 200px;
+  }
+
+  .product-name {
+    font-size: 0.95rem;
+  }
+
+  .product-price {
+    font-size: 1rem;
+  }
+
+  .btn-buy {
+    font-size: 0.85rem;
+    padding: 0.65rem 1rem !important;
+  }
+
+  .feature-box {
+    height: 220px !important;
+  }
+
+  .feature-box h3 {
+    font-size: 1.2rem !important;
+  }
+
+  .container {
+    padding: 0 0.5rem !important;
+  }
+
+  section {
+    padding: 1.5rem 0 !important;
+  }
+
+  .stats-section {
+    padding: 1.5rem 0.5rem !important;
+  }
+
+  .stat-card {
+    padding: 1.25rem !important;
+  }
+
+  .stat-number {
+    font-size: 2rem !important;
+  }
+
+  .trust-icon-box {
+    padding: 1.25rem 0.75rem !important;
+  }
+
+  .trust-icon-box i {
+    font-size: 1.75rem !important;
+  }
+
+  .small-tag {
+    font-size: 0.6rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.6rem !important;
+  }
+
+  .page-header p {
+    font-size: 0.9rem;
+  }
+
+  .whatsapp-card {
+    min-width: 260px;
+    max-width: 260px;
+    padding: 1.25rem;
+  }
+
+  .whatsapp-header {
+    gap: 0.5rem;
+  }
+
+  .whatsapp-bubble {
+    font-size: 0.85rem;
+    padding: 0.8rem;
+  }
+
+  .testimonial-card {
+    padding: 1.25rem !important;
+  }
+
+  .modal-content {
+    border-radius: 20px 20px 0 0;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 0.95rem;
+  }
 }
 
 .feedback-float .float-tooltip {

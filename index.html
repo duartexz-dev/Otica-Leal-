@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description"
         content="Ótica Leal — Sua loja de óculos no Rio de Janeiro. Armações masculinas, femininas e infantis com os melhores preços.">
     <title>Ótica Leal — Qualidade e Estilo para sua Visão</title>
@@ -561,54 +561,64 @@
             </section>
 
             <!-- SEÇÃO EXAMES -->
-            <section id="exames" class="container px-2 px-sm-3 px-md-4 mt-5 mb-5">
-                <div class="exames-section p-3 p-sm-4 p-md-5 reveal">
-                    <div class="row align-items-center g-4 g-lg-5">
-                        <div class="col-lg-5 mb-3 mb-lg-0">
-                            <div class="exame-img-container rounded-4 overflow-hidden shadow-lg"
-                                style="max-height: 400px;">
-                                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80"
-                                    alt="Exame de Vista Profissional" class="img-fluid w-100 h-100"
-                                    style="object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <span class="product-category mb-2 d-inline-block">Saúde Visual em Primeiro Lugar</span>
-                            <h2 class="fw-bold mb-3 lh-sm">Exame Profissional <br class="d-none d-sm-block"><span
-                                    class="badge-free d-inline-block mt-2 mt-sm-0">100% GRÁTIS</span></h2>
-                            <p class="text-secondary mb-4 lh-lg">Sua saúde visual merece atenção especializada.
-                                Equipamentos modernos, profissional experiente e resultado imediato para sua receita.
-                            </p>
-
-                            <div class="benefits-list mb-4">
-                                <div class="benefit-item">
-                                    <div class="benefit-icon flex-shrink-0"><i class="bi bi-eye"></i></div>
-                                    <div class="flex-grow-1">
-                                        <strong class="d-block">Avaliação Completa</strong>
-                                        <small class="text-muted d-block">Teste de acuidade, refração e saúde
-                                            ocular</small>
-                                    </div>
-                                </div>
-                                <div class="benefit-item">
-                                    <div class="benefit-icon flex-shrink-0"><i class="bi bi-cpu"></i></div>
-                                    <div class="flex-grow-1">
-                                        <strong class="d-block">Equipamentos Modernos</strong>
-                                        <small class="text-muted d-block">Tecnologia digital de alta precisão para sua
-                                            segurança</small>
-                                    </div>
-                                </div>
-                                <div class="benefit-item">
-                                    <div class="benefit-icon flex-shrink-0"><i class="bi bi-lightning-charge"></i></div>
-                                    <div class="flex-grow-1">
-                                        <strong class="d-block">Receita na Hora</strong>
-                                        <small class="text-muted d-block">Resultado imediato para escolher seu óculos
-                                            ideal</small>
+            <section id="exames" class="exames-hero-section py-5">
+                <div class="container">
+                    <div class="exames-wrapper glass-card reveal">
+                        <div class="row align-items-center g-4 g-lg-0">
+                            <div class="col-lg-5 col-md-6">
+                                <div class="exame-image-box">
+                                    <div class="exame-img-container rounded-4 overflow-hidden shadow-lg h-100">
+                                        <img src="./images/Foto-laboratório.jpg" alt="Exame de Vista Profissional"
+                                            class="img-fluid w-100 h-100" style="object-fit: cover;">
+                                        <div class="exame-overlay"></div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-7 col-md-6">
+                                <div class="exame-content px-3 px-md-4">
+                                    <span class="small-tag">Saúde Visual</span>
+                                    <h2 class="fw-bold mb-2">Exame <span class="accent-text">Profissional Grátis</span>
+                                    </h2>
+                                    <p class="text-secondary mb-4 lh-lg">Sua saúde visual merece atenção especializada.
+                                        Equipamentos modernos, profissional experiente e resultado imediato para sua
+                                        receita.</p>
 
-                            <button class="btn btn-hero-primary px-4 px-md-5 py-2 py-md-3 w-100 w-md-auto"
-                                data-bs-toggle="modal" data-bs-target="#modalAgendamento">Agendar Agora</button>
+                                    <div class="benefits-list mb-5">
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon flex-shrink-0"><i class="bi bi-eye-fill"></i></div>
+                                            <div class="flex-grow-1">
+                                                <strong class="d-block">Avaliação Completa</strong>
+                                                <small class="text-muted d-block">Teste de acuidade, refração e saúde
+                                                    ocular</small>
+                                            </div>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon flex-shrink-0"><i class="bi bi-pc-display"></i>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <strong class="d-block">Equipamentos Modernos</strong>
+                                                <small class="text-muted d-block">Tecnologia digital de alta
+                                                    precisão</small>
+                                            </div>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon flex-shrink-0"><i class="bi bi-lightning-fill"></i>
+                                                <br>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <strong class="d-block">Receita na Hora</strong>
+                                                <small class="text-muted d-block">Resultado imediato para seu
+                                                    óculos</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-hero-primary btn-lg w-100 btn-exame fw-bold"
+                                        data-bs-toggle="modal" data-bs-target="#modalAgendamento">
+                                        <i class="bi bi-calendar-check me-2"></i>Agendar Exame Grátis
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
