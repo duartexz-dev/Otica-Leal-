@@ -25,23 +25,6 @@ function updateThemeIcon(theme) {
 }
 
 // ============================
-// TOAST NOTIFICATION
-// ============================
-function showToast(message) {
-    let toast = document.getElementById('leal-toast');
-    if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'leal-toast';
-        toast.className = 'toast-notification';
-        document.body.appendChild(toast);
-    }
-    toast.innerHTML = `<i class="bi bi-check-circle-fill" style="color:var(--primary)"></i> ${message}`;
-    toast.classList.add('show');
-    clearTimeout(toast._timeout);
-    toast._timeout = setTimeout(() => toast.classList.remove('show'), 3000);
-}
-
-// ============================
 // SCROLL REVEAL + NAVBAR SCROLL
 // ============================
 function initReveal() {
@@ -152,7 +135,7 @@ function atualizarCarrinhoUI() {
     }
 }
 
-function adicionarCarrinho(nome, preco) {
+function adicionarCarrinho(nome, preco, ev) {
     const itemExistente = carrinho.find(item => item.nome === nome);
     if (itemExistente) {
         itemExistente.qtd++;
@@ -163,8 +146,12 @@ function adicionarCarrinho(nome, preco) {
     atualizarCarrinhoUI();
 
     // Visual feedback on button
-    if (event && event.target) {
-        const btn = event.target.closest('.btn-buy') || event.target;
+    const clickEvent = ev || window.event;
+    const btn = (clickEvent && clickEvent.target)
+        ? clickEvent.target.closest('.btn-buy')
+        : (document.activeElement && document.activeElement.closest ? document.activeElement.closest('.btn-buy') : null);
+
+    if (btn) {
         const original = btn.innerHTML;
         btn.innerHTML = '✓ Adicionado!';
         btn.classList.add('success');
@@ -306,7 +293,7 @@ function initFeedback() {
     btnEnviar.addEventListener('click', () => {
         const input = document.getElementById('feedbackText');
         const text = input.value.trim();
-        
+
         if (!text) {
             alert("Por favor, escreva sua mensagem antes de enviar.");
             return;
@@ -321,15 +308,15 @@ function initFeedback() {
             // Success State
             btnEnviar.disabled = false;
             btnEnviar.innerHTML = 'Enviar Feedback via WhatsApp';
-            
+
             // Close modal
             const modalEl = document.getElementById('modalFeedback');
             const modal = bootstrap.Modal.getInstance(modalEl);
             if (modal) modal.hide();
-            
+
             // Show Success Notification
             showToast("✅ Obrigado! Seu feedback foi enviado com sucesso.");
-            
+
             // Clear input
             input.value = "";
         }, 1500);
