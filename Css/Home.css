@@ -2261,3 +2261,143 @@ a:hover {
     bottom: 80px;
   }
 }
+/* =========================================
+   🔥 RESET GLOBAL ANTI-BUG (SCROLL HORIZONTAL)
+========================================= */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Evita qualquer elemento estourar */
+* {
+  max-width: 100%;
+}
+
+/* =========================================
+   📱 CONTAINER AJUSTADO (MOBILE FIRST)
+========================================= */
+@media (max-width: 768px) {
+  .container,
+  .container-fluid {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Remove aquele "efeito caixa" no mobile */
+  section.container,
+  .container {
+    max-width: 100% !important;
+  }
+}
+
+/* =========================================
+   🔥 HERO FIX (navbar overlap)
+========================================= */
+body {
+  padding-top: 80px; /* altura da navbar */
+}
+
+.hero-section {
+  margin-top: -20px;
+}
+
+/* =========================================
+   📦 SEÇÕES GRANDES (EXAMES, HERO, ETC)
+========================================= */
+.exames-section,
+.hero-content-box,
+.glass-card,
+.feature-box {
+  overflow: hidden;
+}
+
+/* =========================================
+   🖼️ IMAGENS RESPONSIVAS (ANTI ESTOURO)
+========================================= */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================
+   🚫 CORREÇÃO DO FOOTER (SCROLL BUG)
+========================================= */
+.site-footer {
+  overflow: hidden;
+}
+
+.site-footer .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.site-footer img {
+  max-width: 100%;
+}
+
+/* =========================================
+   📱 MOBILE - SEÇÕES MAIS "GRANDES"
+========================================= */
+@media (max-width: 768px) {
+  /* Seções ocupam mais espaço lateral */
+  .exames-section,
+  .stats-section,
+  .testimonial-card,
+  .glass-card {
+    margin-left: -8px;
+    margin-right: -8px;
+    border-radius: 12px;
+  }
+
+  /* Imagem da loja maior */
+  #sobre img {
+    width: 100%;
+    height: auto;
+    transform: scale(1.05);
+  }
+}
+
+/* =========================================
+   🧠 NAVBAR BUG FIX
+========================================= */
+.navbar .container {
+  overflow: visible;
+}
+
+.navbar-collapse {
+  overflow: hidden;
+}
+
+/* Remove quebra estranha */
+.navbar-nav {
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   🔍 SEARCH BOX BUG (ALINHAMENTO)
+========================================= */
+.search-box .input-group-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   🚫 ELEMENTOS QUE CAUSAM OVERFLOW
+========================================= */
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* =========================================
+   📱 MOBILE NAV SAFE AREA
+========================================= */
+.mobile-bottom-nav {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
